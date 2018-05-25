@@ -8,7 +8,7 @@ app = Flask(__name__)
 app.register_blueprint(error_handlers.blueprint)
 
 
-@app.route('/solve', methods=['POST'])
+@app.route('/api/solve', methods=['POST'])
 def solve_assignment():
     if not request.json:
         abort(400)
