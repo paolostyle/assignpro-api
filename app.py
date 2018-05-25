@@ -5,6 +5,7 @@ from ap_flow import CalcType, make_response, FlowNetwork
 from ap_flow.solvers import simple, sum, bottleneck
 
 app = Flask(__name__)
+app.config['JSON_SORT_KEYS'] = False
 app.register_blueprint(error_handlers.blueprint)
 
 
