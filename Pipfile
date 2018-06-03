@@ -8,6 +8,7 @@ flask = "*"
 ortools = "*"
 numpy = "*"
 flask-cors = "*"
+cerberus = "*"
 
 [dev-packages]
 pylint = "*"

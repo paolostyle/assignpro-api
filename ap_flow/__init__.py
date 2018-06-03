@@ -1,1 +1,4 @@
-from .flow import CalcType, make_response, Calculation, FlowNetwork
+from .classes import CalcType
+from .classes import Calculation
+from .classes import FlowNetwork
+from .functions import make_response
