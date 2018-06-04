@@ -82,3 +82,10 @@ def test_too_many_values_in_a_row():
     rv = get_request_validator()
     assert rv.validate(tr) == False
 
+
+def test_unique_values():
+    tr = deepcopy(test_request)
+    tr['workers'] = ['ABC', 'DEF', 'ABC']
+
+    rv = get_request_validator()
+    assert rv.validate(tr) == False

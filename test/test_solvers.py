@@ -121,5 +121,5 @@ def test_simple_solver():
     test_fn = FlowNetwork(data['workers'], data['tasks'], data['costs'])
     response = simple.solve(test_fn)
     response['calculationDate'] = 0
-    print(response)
+
     assert response == expected_result

@@ -6,11 +6,13 @@ type:
 workers:
     type: list
     required: True
+    unique_values: True
     schema:
         type: string
 tasks:
     type: list
     required: True
+    unique_values: True
     schema:
         type: string
 costs:

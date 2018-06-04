@@ -22,6 +22,10 @@ class RequestValidator(Validator):
         if costs_array and len(value) != workers:
             self._error(field, 'Wrong number of rows in the costs\' array')
 
+    def _validate_unique_values(self, unique_values, field, value):
+        if unique_values and len(set(value)) != len(value):
+            self._error(field, 'Workers are not unique')
+
 
 def get_request_validator():
     vsf = os.path.join(os.path.dirname(__file__), 'validation_schema.yml')
