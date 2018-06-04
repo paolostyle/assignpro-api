@@ -1,7 +1,3 @@
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.realpath(__file__)) + '../')
-
 from copy import deepcopy
 from ap_flow import get_request_validator
 

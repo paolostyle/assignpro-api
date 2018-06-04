@@ -15,12 +15,12 @@ class RequestValidator(Validator):
     def _validate_costs_row(self, costs_row, field, value):
         tasks = len(self.root_document['tasks'])
         if costs_row and len(value) != tasks:
-            self._error(field, 'Not enough elements in a costs\' row')
+            self._error(field, 'Wrong number of elements in a costs\' row')
 
     def _validate_costs_array(self, costs_array, field, value):
         workers = len(self.root_document['workers'])
         if costs_array and len(value) != workers:
-            self._error(field, 'Not enough rows in the costs\' array')
+            self._error(field, 'Wrong number of rows in the costs\' array')
 
 
 def get_request_validator():
