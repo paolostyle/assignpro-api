@@ -1,0 +1,25 @@
+type:
+    type: integer
+    required: True
+    min: 1
+    max: 4
+workers:
+    type: list
+    required: True
+    schema:
+        type: string
+tasks:
+    type: list
+    required: True
+    schema:
+        type: string
+costs:
+    type: list
+    required: True
+    costs_array: True
+    schema:
+        type: list
+        costs_row: True
+        schema:
+            cost: True
+            nullable: True
