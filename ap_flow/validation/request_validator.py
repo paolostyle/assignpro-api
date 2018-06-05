@@ -5,6 +5,7 @@ import os
 
 class RequestValidator(Validator):
     def _validate_cost(self, cost, field, value):
+        """ {'type': 'boolean'} """
         if self.root_document['type'] == 4:
             if cost and not isinstance(value, (bool, type(None))):
                 self._error(field, 'Invalid cost: should be of type bool')
@@ -13,16 +14,19 @@ class RequestValidator(Validator):
                 self._error(field, 'Invalid cost: should be a number')
 
     def _validate_costs_row(self, costs_row, field, value):
+        """ {'type': 'boolean'} """
         tasks = len(self.root_document['tasks'])
         if costs_row and len(value) != tasks:
             self._error(field, 'Wrong number of elements in a costs\' row')
 
     def _validate_costs_array(self, costs_array, field, value):
+        """ {'type': 'boolean'} """
         workers = len(self.root_document['workers'])
         if costs_array and len(value) != workers:
             self._error(field, 'Wrong number of rows in the costs\' array')
 
     def _validate_unique_values(self, unique_values, field, value):
+        """ {'type': 'boolean'} """
         if unique_values and len(set(value)) != len(value):
             self._error(field, 'Workers are not unique')
 
