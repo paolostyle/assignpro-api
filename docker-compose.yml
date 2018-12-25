@@ -14,3 +14,7 @@ services:
       - "traefik.frontend.rule=Host:assignpro.ml"
       - "traefik.port=5000"
       - "traefik.protocol=http"
+
+networks:
+  web:
+    external: true
