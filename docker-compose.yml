@@ -11,7 +11,7 @@ services:
     labels:
       - "traefik.docker.network=web"
       - "traefik.enable=true"
-      - "traefik.frontend.rule=Host:assignpro.ml"
+      - "traefik.frontend.rule=Host:api.assignpro.ml"
       - "traefik.port=5000"
       - "traefik.protocol=http"
 

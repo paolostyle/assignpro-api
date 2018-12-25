@@ -7,10 +7,10 @@ from ap_flow.solvers import simple, sum, bottleneck
 
 app = Flask(__name__)
 
-SWAGGER_URL = '/api/docs'
+SWAGGER_URL = '/docs'
 swaggerui_blueprint = get_swaggerui_blueprint(
     SWAGGER_URL,
-    '/api/swagger.json'
+    '/swagger.json'
 )
 
 app.config['JSON_SORT_KEYS'] = False
@@ -21,15 +21,15 @@ CORS(app, methods=['POST', 'OPTIONS'])
 
 @app.route('/')
 def redirect_to_docs():
-    return redirect('/api/docs', code=302)
+    return redirect('/docs', code=302)
 
 
-@app.route('/api/swagger.json')
+@app.route('/swagger.json')
 def swagger_json():
     return send_file('swagger.json')
 
 
-@app.route('/api/solve', methods=['POST'])
+@app.route('/solve', methods=['POST'])
 def solve_assignment():
     if not request.json:
         abort(400)

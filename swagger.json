@@ -9,13 +9,12 @@
     },
     "license": {
       "name": "MIT",
-      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+      "url": "https://opensource.org/licenses/MIT"
     }
   },
-  "host": "ec2-35-157-2-195.eu-central-1.compute.amazonaws.com",
-  "basePath": "/api",
+  "host": "api.assignpro.ml",
   "schemes": [
-    "http"
+    "https"
   ],
   "tags": [
     {
@@ -159,9 +158,5 @@
         }
       }
     }
-  },
-  "externalDocs": {
-    "description": "Find out more about Swagger",
-    "url": "http://swagger.io"
   }
 }

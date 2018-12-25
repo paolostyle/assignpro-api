@@ -10,8 +10,7 @@ This repo contains backend/API for solving flow networks.
 * Google ORTools - flow network solver
 * NumPy - matrix calculations
 * Docker - containerization
-* uWSGI - WSGI web server
-* nginx - static files server and reverse proxy for uWSGI
+* uWSGI + nginx - serving the Python app
 * Swagger - API documentation
 
 ## Running the app
@@ -25,9 +24,11 @@ python main.py
 ```
 
 ### Production
-Make sure you have installed Docker.
+In real life, it relies on docker-compose and Traefik for load balancing and SSL encryption.
+For "fake" production you should just run:
 ```
-./deploy.sh
+docker build -t assignpro-api .
+docker run -d -p 5000:5000 --name api assign-pro
 ```
 
 ## Copyright
