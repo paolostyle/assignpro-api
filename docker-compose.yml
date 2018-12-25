@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  api:
+    build: .
+    restart: always
+    networks:
+      - web
+    expose:
+      - "5000"
+    labels:
+      - "traefik.docker.network=web"
+      - "traefik.enable=true"
+      - "traefik.frontend.rule=Host:assignpro.ml"
+      - "traefik.port=5000"
+      - "traefik.protocol=http"
