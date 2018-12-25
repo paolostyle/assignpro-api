@@ -1,0 +1,167 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Open API for solving assignment problems.",
+    "version": "1.0.0",
+    "title": "AssignPro API",
+    "contact": {
+      "email": "dabrowskip9@gmail.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "ec2-35-157-2-195.eu-central-1.compute.amazonaws.com",
+  "basePath": "/api",
+  "schemes": [
+    "http"
+  ],
+  "tags": [
+    {
+      "name": "Main"
+    }
+  ],
+  "paths": {
+    "/solve": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "summary": "Solve a flow network",
+        "description": "",
+        "operationId": "solveNetwork",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Assignment problem that should be solved",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Data"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SolveResponse"
+            }
+          },
+          "400": {
+            "description": "Invalid data"
+          },
+          "416": {
+            "description": "Some values might be too high and the results may be innacurate"
+          },
+          "500": {
+            "description": "Internal server error"
+          },
+          "501": {
+            "description": "Invalid type"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Data": {
+      "type": "object",
+      "required": [
+        "tasks",
+        "workers",
+        "costs",
+        "type"
+      ],
+      "properties": {
+        "tasks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "workers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "costs": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "type": {
+          "type": "integer",
+          "enum": [
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      }
+    },
+    "SolveResponse": {
+      "type": "object",
+      "properties": {
+        "assignment": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "worker": {
+                "type": "string"
+              },
+              "task": {
+                "type": "string"
+              },
+              "row": {
+                "type": "integer"
+              },
+              "col": {
+                "type": "integer"
+              },
+              "value": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "type": {
+          "type": "integer",
+          "enum": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "status": {
+          "type": "integer"
+        },
+        "numResult": {
+          "type": "integer"
+        },
+        "message": {
+          "type": "string"
+        },
+        "calculationDate": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}

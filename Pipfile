@@ -10,6 +10,7 @@ numpy = "*"
 flask-cors = "*"
 cerberus = "*"
 pyyaml = "*"
+flask-swagger-ui = "*"
 
 [dev-packages]
 pylint = "*"
