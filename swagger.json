@@ -84,7 +84,7 @@
           "items": {
             "type": "array",
             "items": {
-              "oneOf": [{ "type": "integer" }, { "type": "boolean" }]
+              "type": "integer"
             }
           }
         },
