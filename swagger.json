@@ -13,9 +13,7 @@
     }
   },
   "host": "api.assignpro.ml",
-  "schemes": [
-    "https"
-  ],
+  "schemes": ["https"],
   "tags": [
     {
       "name": "Main"
@@ -24,18 +22,12 @@
   "paths": {
     "/solve": {
       "post": {
-        "tags": [
-          "Main"
-        ],
+        "tags": ["Main"],
         "summary": "Solve a flow network",
         "description": "",
         "operationId": "solveNetwork",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
         "parameters": [
           {
             "in": "body",
@@ -73,12 +65,7 @@
   "definitions": {
     "Data": {
       "type": "object",
-      "required": [
-        "tasks",
-        "workers",
-        "costs",
-        "type"
-      ],
+      "required": ["tasks", "workers", "costs", "type"],
       "properties": {
         "tasks": {
           "type": "array",
@@ -95,17 +82,15 @@
         "costs": {
           "type": "array",
           "items": {
-            "type": "integer"
+            "type": "array",
+            "items": {
+              "oneOf": [{ "type": "integer" }, { "type": "boolean" }]
+            }
           }
         },
         "type": {
           "type": "integer",
-          "enum": [
-            1,
-            2,
-            3,
-            4
-          ]
+          "enum": [1, 2, 3, 4]
         }
       }
     },
@@ -137,12 +122,7 @@
         },
         "type": {
           "type": "integer",
-          "enum": [
-            1,
-            2,
-            3,
-            4
-          ]
+          "enum": [1, 2, 3, 4]
         },
         "status": {
           "type": "integer"

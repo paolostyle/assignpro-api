@@ -44,7 +44,7 @@ def test_sum_solver():
         'type': CalcType.SUM,
         'assignment': expected_assignment,
         'numResult': 111,
-        'message': 'Obliczenia zakończone sukcesem!',
+        'message': 'success',
         'status': 200,
         'calculationDate': 0    # rather irrelevant
     }
@@ -113,7 +113,7 @@ def test_simple_solver():
             'col': 1
         }],
         'numResult': 3,
-        'message': 'Obliczenia zakończone sukcesem!',
+        'message': 'success',
         'status': 200,
         'calculationDate': 0    # rather irrelevant
     }

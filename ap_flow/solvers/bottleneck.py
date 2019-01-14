@@ -29,12 +29,9 @@ def check_threshold(fn: FlowNetwork, threshold):
 
     solution = graph.Solve(fn.source, fn.sink)
 
-    req_flow = min((fn.workers, fn.tasks))
+    req_flow = min(len(fn.workers), len(fn.tasks))
 
-    if solution == graph.OPTIMAL and req_flow == graph.OptimalFlow():
-        return True
-    else:
-        return False
+    return solution == graph.OPTIMAL and req_flow == graph.OptimalFlow()
 
 
 def solve(fn: FlowNetwork):

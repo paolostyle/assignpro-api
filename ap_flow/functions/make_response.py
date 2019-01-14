@@ -1,28 +1,22 @@
-import datetime
+from datetime import datetime
 
 
 def make_response(response, status, v_errors=None):
     response['status'] = status
 
     if status == 200:
-        msg = 'Obliczenia zakończone sukcesem!'
+        msg = 'success'
     elif status == 400 and v_errors == None:
-        msg = 'Przydział dla wprowadzonych danych nie jest możliwy.'
+        msg = 'assignment_impossible'
     elif status == 400 and v_errors != None:
-        msg = (
-            'Wystąpiły błędy walidacji. Jeżeli nie używasz aplikacji w '
-            'nieprzewidziany sposób, to nie powinno się to wydarzyć.'
-        )
+        msg = 'validation_error'
     elif status == 416:
-        msg = (
-            'Niektóre wartości kosztów są zbyt wysokie i mogą '
-            'spowodować przekroczenie zakresu liczb całkowitych.'
-        )
+        msg = 'costs_overflow'
     elif status == 500:
-        msg = 'Wystąpił wewnętrzny błąd serwera.'
+        msg = 'internal_server_error'
     elif status == 501:
-        msg = 'Nie znaleziono określonego typu obliczeń.'
+        msg = 'invalid_calculation_type'
 
     response['message'] = msg
-    response['calculationDate'] = datetime.datetime.now().isoformat()
+    response['calculationDate'] = datetime.now().isoformat()
     return response

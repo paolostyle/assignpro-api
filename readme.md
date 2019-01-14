@@ -28,8 +28,8 @@ In real life, it relies on docker-compose and Traefik for load balancing and SSL
 For "fake" production you should just run:
 ```
 docker build -t assignpro-api .
-docker run -d -p 5000:5000 --name api assign-pro
+docker run -d -p 5000:5000 --name api assignpro-api
 ```
 
 ## Copyright
-Paweł Dąbrowski &copy; 2018
+Paweł Dąbrowski &copy; 2018-2019

@@ -32,10 +32,7 @@ def solve(fn: FlowNetwork, maximize: bool=False, threshold=inf):
 
     # supply have to be the lower of the two to make sure that
     # all of them are assigned when the costs matrix isn't square
-    if len(fn.tasks) < len(fn.workers):
-        supply = len(fn.tasks)
-    else:
-        supply = len(fn.workers)
+    supply = min(len(fn.tasks), len(fn.workers))
 
     graph.SetNodeSupply(fn.source, supply)
     graph.SetNodeSupply(fn.sink, -supply)
