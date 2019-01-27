@@ -18,7 +18,7 @@ This repo contains backend/API for solving flow networks.
 ### Development
 Make sure you have installed Python 3.6 and ``pipenv`` (if not, run ``pip install pipenv``).
 ```
-pipenv install
+pipenv install --dev
 pipenv shell
 python main.py
 ```
@@ -29,6 +29,11 @@ For "fake" production you should just run:
 ```
 docker build -t assignpro-api .
 docker run -d -p 5000:5000 --name api assignpro-api
+```
+
+## Test
+```
+python -m pytest --cov=ap_flow test/
 ```
 
 ## Copyright

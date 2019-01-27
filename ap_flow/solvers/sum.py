@@ -30,7 +30,7 @@ def solve(fn: FlowNetwork, maximize: bool=False, threshold=inf):
     for task in fn.tasks_nodes:
         graph.AddArcWithCapacityAndUnitCost(task, fn.sink, 1, 0)
 
-    # supply have to be the lower of the two to make sure that
+    # supply has to be the lower of the two to make sure that
     # all of them are assigned when the costs matrix isn't square
     supply = min(len(fn.tasks), len(fn.workers))
 
